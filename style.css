@@ -221,7 +221,7 @@ span {
     left: calc(50% - 75vmax);
     top: calc(50% - 75vmax);
     pointer-events: none;
-    z-index: 2;
+    z-index: 999999;
     -webkit-animation: rotateFrame 10s linear infinite;
     animation: rotateFrame 10s linear infinite;
 }
@@ -597,4 +597,19 @@ body {
     transform: translate3d(0px, 0px, 0);
     box-shadow: 0px 0px 0 rgba(255, 255, 255, 0.5);
     color: black !important;
+}
+#custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+}
+.slider{
+    z-index: 99;
+    top: 500px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }

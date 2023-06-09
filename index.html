@@ -5,8 +5,27 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="s2.scss">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            var handle = $( "#custom-handle" );
+            $( "#slider" ).slider({
+                create: function() {
+                    handle.text( $( this ).slider( "value" ) );
+                },
+                slide: function( event, ui ) {
+                    handle.text( ui.value );
+                }
+            });
+        } );
+    </script>
     <script>
         $(function () {
             var progressbar = $("#progressbar"),
@@ -109,6 +128,11 @@
                             <div class="progress-label">Loading...</div>
                         </div>
                     </a></div>
+            </div>
+        </div>
+        <div style="z-index: 999999">
+            <div id="slider">
+                <div id="custom-handle" class="ui-slider-handle"></div>
             </div>
         </div>
         <div class="carousel__shutters"></div>
