@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="s2.scss">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            var progressbar = $("#progressbar"),
+                progressLabel = $(".progress-label");
+
+            progressbar.progressbar({
+                value: false,
+                change: function () {
+                    progressLabel.text(progressbar.progressbar("value") + "%");
+                },
+                complete: function () {
+                    progressLabel.text("Complete!");
+                }
+            });
+
+            function progress() {
+                var val = progressbar.progressbar("value") || 0;
+
+                progressbar.progressbar("value", val + 2);
+
+                if (val < 99) {
+                    setTimeout(progress, 80);
+                }
+            }
+
+            setTimeout(progress, 2000);
+        });
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="container">
+
+
+    <div class="carousel">
+        <ul>
+            <li><a href="">Milk</a></li>
+            <li><a href="">White</a></li>
+            <li><a href="">Carrots</a></li>
+            <li><a href="">Orange</a></li>
+            <li><a href="">Broccoli</a></li>
+            <li><a href="">Green</a></li>
+        </ul>
+        <script>
+            $("li")
+                .odd()
+                .hide()
+                .end()
+                .even()
+                .hover(function () {
+                    $(this)
+                        .toggleClass("active")
+                        .next()
+                        .stop(true, true)
+                        .slideToggle();
+                });
+        </script>
+        <div class="carousel__slides">
+            <div class="carousel__slide">
+                <div class="carousel__slideBg"></div>
+                <div class="carousel__slideContent">
+                    <span></span>
+                    <span></span>
+                    <a class="button" href="" target="/black">
+                        <div id="progressbar">
+                            <div class="progress-label">Loading...</div>
+                        </div>
+                    </a></div>
+            </div>
+            <div class="carousel__slide">
+                <div class="carousel__slideBg"></div>
+                <div class="carousel__slideContent">
+                    <span></span>
+                    <span></span>
+                    <a class="button" href="" target="/black">
+                        <div id="progressbar">
+                            <div class="progress-label">Loading...</div>
+                        </div>
+                    </a></div>
+            </div>
+            <div class="carousel__slide">
+                <div class="carousel__slideBg"></div>
+                <div class="carousel__slideContent">
+                    <span></span>
+                    <span></span>
+                    <a class="button" href="">
+                        <div id="progressbar">
+                            <div class="progress-label">Loading...</div>
+                        </div>
+                    </a></div>
+            </div>
+            <div class="carousel__slide">
+                <div class="carousel__slideBg"></div>
+                <div class="carousel__slideContent">
+                    <span></span>
+                    <span></span>
+                    <a class="button" href="" target="/black">
+                        <div id="progressbar">
+                            <div class="progress-label">Loading...</div>
+                        </div>
+                    </a></div>
+            </div>
+        </div>
+        <div class="carousel__shutters"></div>
+    </div>
+
+</div>
+</body>
+</html>
